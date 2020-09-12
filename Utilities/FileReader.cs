@@ -6,6 +6,9 @@ namespace AssetFinancingStudy
     {
         private const char DELIMITER = ' ';
 
+        /* 
+         * Manages pyramid data extraction from file and returns the pyramid
+         */
         public static int[,] ReadPyramidNumbers(string filename)
         {
             StreamReader r = new StreamReader(filename);
@@ -17,6 +20,9 @@ namespace AssetFinancingStudy
             return pyramid;
         }
 
+        /* 
+         * Returns the amount of lines in the file
+         */
         private static int CountLines(StreamReader r)
         {
             int lines = 0;
@@ -29,6 +35,10 @@ namespace AssetFinancingStudy
             return lines;
         }
 
+        /* 
+         * Reads the file and returns pyramid 
+         * structure in matrix (2D array) format
+         */
         private static int[,] FillMatrix(int matrixSize, StreamReader r)
         {
             string row;

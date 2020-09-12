@@ -14,17 +14,27 @@ namespace AssetFinancingStudy
             this.pyramid = pyramid;
         }
 
+        /* 
+         * Calls relevant algorithm methods
+         */
         public void PreparePyramid()
         {
             RemoveInvalidPaths();
             CalculateSubPyramidsSums();
         }
 
+        /* 
+         * Returns the tip of the pyramid
+         */
         public int GetPyramidApex()
         {
             return Pyramid[0,0];
         }
 
+        /* 
+         * Calculates and returns the list of nodes that are a part of the path 
+         * with largest wight. Nodes are sequenced from pyramid's top to bottom
+         */
         public List<int> GetPathSequence()
         {
             var pathSequence = new List<int>();
@@ -42,6 +52,10 @@ namespace AssetFinancingStudy
             return pathSequence;
         }
 
+        /* 
+         * Assigns zero value to the nodes of pyramid that are not eligible 
+         * for path calculation according to the provided requirements
+         */
         private void RemoveInvalidPaths()
         {
             bool isCurrentRowEven, isCurrentNumberEven;
@@ -65,6 +79,10 @@ namespace AssetFinancingStudy
             }
         }
 
+        /* 
+         * Calculates the maximum path weight of each 
+         * individual node using bottom-up method
+         */
         private void CalculateSubPyramidsSums()
         {
             var rows = Pyramid.GetLength(0);
